@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+    Socket.io lab
+    </title>
+  </head>
+  <body>
+    <style>
+    .race {
+      width: 100px;
+      border-right: 1px dashed black;
+    }
+
+    .racer {
+      position: relative;
+    }
+
+    #winnerModal {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      font-size: 44px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    #winnerModal.open {
+      z-index: 99;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      pointer-events: all;
+    }
+
+    #winnerModal.open ~ button {
+      pointer-events: none;
+    }
+    </style>
+    <h1>
+      There are <span id="connectedUsers">1</span> users connected.
+    </h1>
+    <div id="winnerModal">
+
+    </div>
+    <button id="moveTop">
+      move top racer
+    </button>
+    <div class="race">
+      <div class="racer" id="top">
+        👿
+      </div>
+      <div class="racer" id="bot">
+        😇
+      </div>
+    </div>
+    <button id="moveBot">
+      move bottom racer
+    </button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
